@@ -7,6 +7,15 @@ const restaurants = {
   "Space needle": ["Spicy Shrimp", "Pumpkin Pies 'R Us"]
 }
 
+const entertainments = {
+  "Pike's Place": ["Shopping", "Bobbing 4 Fish", "Swimming"],
+  "1st street": ["Comic Con", "Sakura Con", "Hatsune Miku Expo"],
+  "Space needle": ["Sky Diving", "Street Performers", "Fireworks"]
+}
+
+const transportations = [ "Subway", "Uber", "Taxi"];
+
+
 function isYes(input) {
   return input === "yes";
 }
@@ -20,7 +29,7 @@ function getRandom(array) {
 
 function selectDestination() {
   let destination = getRandom(destinations);
-  while (!isYes(prompt("are you happy with your destination type yes or no"))) {
+  while (!isYes(prompt("Are you happy with your destination choice, " + destination + "? Type yes or no."))) {
     destination = getRandom(destinations);
   }
   return destination;
@@ -29,61 +38,41 @@ function selectDestination() {
 function selectRestaurant(destination) {
   const restaurantsForDestination = restaurants[destination];
   let restaurant = getRandom(restaurantsForDestination);
-  while (!isYes(prompt("are you happy with your food choice type yes or no"))) {
+  while (!isYes(prompt("Are you happy with your food choice type, " + restaurant + "? Type yes or no."))) {
     restaurant = getRandom(restaurantsForDestination);
   }
   return restaurant;
 }
 
+function selectTransportation() {
+  let transportation = getRandom(transportations);
+  while (!isYes(prompt("Are you happy with your transportation choice, " + transportation + "? Type yes or no."))) {
+    transportation = getRandom(transportations);
+  }
+  return transportation;
+}
+
+function selectEntertainment(destination) {
+  const entertainmentForDestination = entertainments[destination];
+  let entertainment = getRandom(entertainmentForDestination);
+  while (!isYes(prompt("Are you happy with your transportation choice, " + entertainment + "? Type yes or no"))) {
+    entertainment = getRandom(entertainmentForDestination);
+  }
+  return entertainment;
+}
+
 function completeTrip() {
   const destination = selectDestination();
   const restaurant = selectRestaurant(destination);
+  const transportation = selectTransportation();
+  const entertainment = selectEntertainment(destination);
   console.log("Trip is confirmed. Please have a nice vacation. No Refunds.");
   console.log(destination);
   console.log(restaurant);
+  console.log(transportation);
+  console.log(entertainment);
 }
 
 completeTrip();
 
 
-// function randomTransportation() {
-//   let array = ["taxi", "rent a car", "uber"];
-//   let transportMode = array[Math.floor(Math.random()*array.length)];
-//   console.log(transportMode);
-//
-// }
-//
-//
-// function randomEntertainment() {
-//   let array = ["comic con", "sakura con", "hatsune miku expo"];
-//   let con = array[Math.floor(Math.random()*array.length)];
-//   console.log(con);
-//   return con;
-//
-// }
-
-
-// function randomRestaurant(incomingItems){
-//
-//   let index = [Math.floor(Math.random()*incomingItems.length)];
-//   // console.log(eatery);
-//   return eatery = incomingItems[index];
-// }
-// let restaurantArray = ["Wendy's", "Dennys", "BurgerKing"];
-// let restResult = randomRestaurant(restaurantArray);
-// console.log(restResult);
-
-
-// function selectRestaurant(destination) {
-//   let restaurantsArray = ["Wendy's", "Dennys", "BurgerKing"];
-//   let restResult = randomArray(restaurantsArray);
-//   let resHappy = false;
-//   while (!resHappy) {
-//     if (isYes(prompt("are you happy with your food choice type yes or no"))) {
-//       resHappy = true;
-//     } else {
-//       restResult = randomArray(restaurantsArray);
-//     }
-//   }
-//   return restResult;
-// }
