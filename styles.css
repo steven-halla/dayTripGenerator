@@ -1,9 +1,6 @@
 html {
     min-height: 100%;
-
-
 }
-
 
 .seattleimage {
     background-image:  url("https://komonews.com/resources/media/67c10548-3e1d-468d-9525-7d5f3e70c65f-large3x4_12a0989c2bc64a04b66bd0f56d6406e4large16x9_160203_seattle_skyline_sunny_01.jpg?1607731497689");
@@ -15,8 +12,6 @@ html {
     right:0px;
     bottom:0px;
     left:0px;
-
-
 }
 
 .message{
@@ -24,5 +19,4 @@ html {
     text-align: center;
     color: blue;
     font-size: x-large;
-
 }
